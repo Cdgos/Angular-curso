@@ -2,15 +2,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { ContadorModule } from './contador/contador.module';
+import { HeroesModule } from './heroes/heroes.module';
+
+// MODULO PRINCIPAL
 
 @NgModule({
   declarations: [
-    AppComponent
+    //Componentes que se están utilizando
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HeroesModule, //Modulo heroes que contiene 2 componentes.
+    ContadorModule //Modulo contador
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] //Componente principal, el primero que se lanza.
 })
 export class AppModule { }

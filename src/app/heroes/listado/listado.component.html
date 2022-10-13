@@ -1,0 +1,50 @@
+<p> Listado de héroes </p>
+
+<!-- Directiva ngFor: es como un ciclo for. 
+let nombreVariable = es la referencia que recorre el arreglo.
+of heroes = arreglo a recorrer.
+;
+let i = index -> podemos obtener el indicice
+---------------------------------------------------------------------
+Directiva ngIf: Mostrar de manera condicional
+
+-->
+
+
+<!-- Todo el siguiente div aparecerá si el ngIf es true. -->
+<!-- Si es diferente de vacio, significa que borró. 
+Se podria poner solo heroeDelete. Sino, muestre la referencia local no Borrado. (ng-template) -->
+<div *ngIf=" heroeDelete !== ''; else noBorrado "> 
+    <h3>Heroe borrado: <small> {{heroeDelete}} </small> </h3>
+</div>
+
+<!-- Es un componente de angular, mostrara un contenido basado en algo. 
+Esta referencia #nombre, es del lado del template (html), no del .ts
+-->
+<ng-template #noBorrado>
+    <h3> No ha borrado nada. </h3>
+</ng-template>
+
+
+<button (click)="borrarHeroe()">
+    Borrar
+</button>
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index">
+        {{i + 1}} - {{heroe}} <!-- Va imprimiendolo uno a uno en un li. -->
+    </li>
+</ul>
+
+
+<!-- Esto sería hacerlo sin ngFor:
+
+<ul>
+    <li> {{ heroes[0] }} </li>
+    <li> {{ heroes[1] }} </li>
+    <li> {{ heroes[2] }} </li>
+    <li> {{ heroes[3] }} </li>
+    <li> {{ heroes[4] }} </li>
+</ul>
+
+-->
